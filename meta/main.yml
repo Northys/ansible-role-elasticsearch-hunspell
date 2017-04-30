@@ -1,0 +1,20 @@
+---
+dependencies:
+  - geerlingguy.elasticsearch
+
+galaxy_info:
+  author: northys
+  description: Hunspell dictionaries for elasticsearch.
+  license: "MIT"
+  min_ansible_version: 2.0
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  galaxy_tags:
+    - elastisearch
+    - hunspell
+    - dictionary
