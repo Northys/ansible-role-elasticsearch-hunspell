@@ -1,0 +1,5 @@
+---
+hunspell_dictionary_clone_path: /tmp/northys.hunspell
+hunspell_dictionary_path: /etc/elasticsearch/hunspell
+hunspell_dictionaries: # language_code is path for elastic, language_file is filename in the repository
+  - { language_code: cs_CZ, language_file: Czech}

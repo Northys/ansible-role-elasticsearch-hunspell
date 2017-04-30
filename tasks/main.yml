@@ -1,0 +1,37 @@
+---
+- name: clone repository with hunspell dictonaries
+  git:
+    repo: 'https://github.com/titoBouzout/Dictionaries.git'
+    dest: "{{ hunspell_dictionary_clone_path }}"
+    clone: yes
+    update: yes
+    force: yes
+
+- name: create hunspell directory
+  file:
+    path: "{{ hunspell_dictionary_path }}"
+    state: directory
+
+- name: create directory for each language
+  file:
+    path: "{{ hunspell_dictionary_path }}/{{ item.language_code }}"
+    state: directory
+  with_items: "{{ hunspell_dictionaries }}"
+
+- name: copy dic dictionary
+  copy:
+    remote_src: true
+    src: "{{ hunspell_dictionary_clone_path }}/{{ item.language_file }}.dic"
+    dest: "{{ hunspell_dictionary_path }}/{{ item.language_code }}/{{ item.language_code }}.dic"
+    mode: 0666
+    force: no
+  with_items: "{{ hunspell_dictionaries }}"
+
+- name: copy aff dictionary
+  copy:
+    remote_src: true
+    src: "{{ hunspell_dictionary_clone_path }}/{{ item.language_file }}.aff"
+    dest: "{{ hunspell_dictionary_path }}/{{ item.language_code }}/{{ item.language_code }}.aff"
+    mode: 0666
+    force: no
+  with_items: "{{ hunspell_dictionaries }}"
