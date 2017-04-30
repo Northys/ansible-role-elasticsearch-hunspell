@@ -2,7 +2,7 @@
 
 Clones [repository with dictonaries](https://github.com/titoBouzout/Dictionaries.git) and copies selected languages into elasticsearch config directory.
 
-## Role Variables
+## Role Variables
 
 ```
 hunspell_dictionary_clone_path: /tmp/northys.hunspell
